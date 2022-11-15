@@ -17,7 +17,7 @@ job "demo-webapp" {
           source = "prometheus"
           query  = "avg(nomad_client_allocs_cpu_total_percent{task='server'})"
           strategy "target-value" {
-            target = 0.5
+            target = 2
           }
         }
       }
