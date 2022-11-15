@@ -8,8 +8,8 @@ services:
     links:
       - redis
     environment:
-      - SPRING_REDIS_HOST=redis
-      - SPRING_REDIS_PORT=6379
+      - SPRING_DATA_REDIS_HOST=redis
+      - SPRING_DATA_REDIS_PORT=6379
   redis:
     image: 'redis/redis-stack:latest'
     ports:
