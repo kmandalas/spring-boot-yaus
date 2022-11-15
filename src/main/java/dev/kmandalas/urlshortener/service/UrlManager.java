@@ -9,6 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.charset.Charset;
 import java.time.LocalDateTime;
 
@@ -30,15 +33,26 @@ public class UrlManager {
     }
 
     public Url shortenUrl(String url) {
+        if (!isValidURL(url)) throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+
         String key = Hashing
             .murmur3_32_fixed()
             .hashString(url, Charset.defaultCharset()).toString();
 
-        Url entry = Url.of(key, url, base_url + "/" + key);
-        entry.setCreatedAt(LocalDateTime.now());
-        urlRepository.save(entry);
+        return urlRepository.findById(key).orElseGet(() -> {
+            Url newEntry = Url.of(key, url, base_url + "/" + key);
+            newEntry.setCreatedAt(LocalDateTime.now());
+            return urlRepository.save(newEntry);
+        });
+    }
 
-        return entry;
+    private boolean isValidURL(String url) {
+        try {
+            new URL(url).toURI();
+            return true;
+        } catch (MalformedURLException | URISyntaxException e) {
+            return false;
+        }
     }
 
 }

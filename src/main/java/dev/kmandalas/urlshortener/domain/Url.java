@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor(staticName = "of")
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor
-@RedisHash("url")
+@RedisHash(value = "url", timeToLive = 60)
 public class Url {
 
     @NonNull @Id @Indexed

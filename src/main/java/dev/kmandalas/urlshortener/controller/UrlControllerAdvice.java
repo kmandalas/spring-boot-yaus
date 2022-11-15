@@ -14,10 +14,10 @@ public class UrlControllerAdvice {
 
     @ExceptionHandler(ResponseStatusException.class)
     public ResponseEntity<ErrorDto> handleApi(final ResponseStatusException exception) {
-        final ErrorDto errorResponse = new ErrorDto(exception.getStatus().value(),
+        final ErrorDto errorResponse = new ErrorDto(exception.getStatusCode().value(),
             exception.getClass().getSimpleName(), exception.getMessage());
 
-        return new ResponseEntity<>(errorResponse, exception.getStatus());
+        return new ResponseEntity<>(errorResponse, exception.getStatusCode());
     }
 
     @ExceptionHandler(Throwable.class)
