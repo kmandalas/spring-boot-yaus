@@ -1,6 +1,5 @@
 package dev.kmandalas.urlshortener.domain;
 
-import com.redis.om.spring.annotations.Indexed;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,6 +8,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
+import org.springframework.data.redis.core.index.Indexed;
 
 import java.time.LocalDateTime;
 
@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor(staticName = "of")
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor
-@RedisHash
+@RedisHash(value = "url", timeToLive = 60)
 public class Url {
 
     @NonNull @Id @Indexed

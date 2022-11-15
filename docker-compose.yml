@@ -1,14 +1,15 @@
 version: '3.9'
 services:
-#    app:
-#      image: urlshortener:0.0.1-SNAPSHOT
-#      ports:
-#       - "9090:9090"
-#      links:
-#        - redis
-#      environment:
-#        - SPRING_REDIS_HOST=redis
-#        - SPRING_REDIS_PORT=6379
+  app:
+    image: urlshortener:0.0.1-SNAPSHOT
+#    build: .
+    ports:
+      - "9090:9090"
+    links:
+      - redis
+    environment:
+      - SPRING_DATA_REDIS_HOST=redis
+      - SPRING_DATA_REDIS_PORT=6379
   redis:
     image: 'redis/redis-stack:latest'
     ports:
