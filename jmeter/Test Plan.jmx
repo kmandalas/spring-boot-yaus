@@ -33,7 +33,7 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;url&quot;: &quot;https://www.plaisio.gr/offers/black-friday?ref_tim=1668434028&amp;ref_a=12020905&amp;ref_b=1452824&amp;utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=hack_friday_mixed_14_11_2022&amp;utm_term=1452824_12020905&quot;&#xd;
+    &quot;url&quot;: &quot;https://www.plaisio.gr/offers/black-friday?ref_tim=1668434028&amp;ref_a=12020905&amp;ref_b=1452824&amp;utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=hack_friday_mixed_14_11_2022&amp;utm_term=1452824_${random}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -54,6 +54,15 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
+          <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
+            <stringProp name="maximumValue">99999</stringProp>
+            <stringProp name="minimumValue">10000</stringProp>
+            <stringProp name="outputFormat">00000</stringProp>
+            <boolProp name="perThread">true</boolProp>
+            <stringProp name="randomSeed">10000</stringProp>
+            <stringProp name="variableName">random</stringProp>
+          </RandomVariableConfig>
+          <hashTree/>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
