@@ -7,7 +7,7 @@ job "demo-webapp" {
     scaling {
       enabled = true
       min     = 1
-      max     = 2
+      max     = 4
 
       policy {
         evaluation_interval = "2s"
@@ -17,7 +17,7 @@ job "demo-webapp" {
           source = "prometheus"
           query  = "avg(nomad_client_allocs_cpu_total_percent{task='server'})"
           strategy "target-value" {
-            target = 2
+            target = 25
           }
         }
       }
