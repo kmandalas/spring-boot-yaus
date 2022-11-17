@@ -1,3 +1,6 @@
+# used for local development
+# To build the app image, you can run the spring-boot:build-image goal with the native profile active: mvn -Pnative spring-boot:build-image
+
 version: '3.9'
 services:
   app:
