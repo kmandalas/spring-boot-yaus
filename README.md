@@ -9,6 +9,8 @@ Spring Boot native app demo (Yet Another URL Shortener with Redis).
 ## build
 Run `mvn -Pnative spring-boot:build-image`
 
+This will take some time :hourglass_flowing_sand: since we are building a GraalVM Native Image.
+
 ## run
 `docker-compose up`
 
