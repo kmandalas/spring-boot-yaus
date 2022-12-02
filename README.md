@@ -5,7 +5,7 @@ Spring Boot native app demo (Yet Another URL Shortener with Redis).
 - Java version: 17
 - Build tool: Maven
 
-Disclaimer: the demo app is an over-simplified URL shortener for the purpose of producing and testing a Spring Native app which has some footprint and is not a simple "Hello World" case. If you are interested in building an actual URL shortener clone, check System Design approaches like [this one](https://dev.to/karanpratapsingh/system-design-url-shortener-10i5)
+Disclaimer: the demo app is an over-simplified URL shortener for the purpose of testing HashiCorp Nomad's Horizontal Application Scaling capabilities with a Spring Native app as scaling target (an app that has some footprint and is not a simple "Hello World" case). You can read all about it on my Dzone article [Auto-Scaling a Spring Boot Native App With Nomad](https://dzone.com/articles/auto-scaling-a-spring-native-app-with-nomad). If you are interested in building an actual URL shortener clone, check System Design approaches like [this one](https://dev.to/karanpratapsingh/system-design-url-shortener-10i5).
 
 ## build
 Run `mvn -Pnative spring-boot:build-image`
